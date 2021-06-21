@@ -1,28 +1,40 @@
-class Account ():
+
+class Account():
 
 
+	def __init__(self,owner,balance=0):
 
-	def __init__(self,owner,amt=0):
 		self.owner=owner
-		self.amt=amt
+		self.balance=balance
 
 
 	def deposit(self,dep_amt):
-		self.amt = self.amt + dep_amt
-		print 'Hello, Amount = {} has been added'.format(dep_amt)
+
+		self.balance = self.balance + dep_amt
+		print ("Amount : {} has been deposited in your account".format(dep_amt))
+		print ("New Balance : {}".format(self.balance))
 
 
 	def withdraw(self,with_amt):
 
-		if self.amt >= with_amt:
-			self.amt = self.amt - with_amt
-			print 'Hello, Amount : {} has been withdrawn'.format(with_amt)
+		if self.balance >= with_amt:
+			self.balance = self.balance - with_amt
+			print ("Amount : {} has been withdrawn from your account".format(with_amt))
+			print ("New Balance : {}".format(self.balance))
 
 
 		else:
-			#amt < with_amt:
-			print 'Sorry, you dont have enough funds'
+			print ("Sorry, not enough funds. Available Balance : {}".format(self.balance))
 
 
 	def __str__(self):
-		retun "Owner : {} \n Balance : {}".format(self.owner,self.amt)
+		return "Owner : {} \nBalance : {}".format(self.owner,self.balance)
+
+
+
+My_account = Account('Roy',1000)
+print (My_account)
+
+My_account.deposit(500)
+
+My_account.withdraw(300)
